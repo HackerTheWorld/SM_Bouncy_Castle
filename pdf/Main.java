@@ -23,6 +23,7 @@ public class Main {
          Certificate[] cert = new Certificate[1];
         	 cert[0] = keyStore.get("cert") instanceof Certificate?(Certificate)keyStore.get("cert"):null;
          PrivateKey privateKey = keyStore.get("privateKey") instanceof PrivateKey?(PrivateKey)keyStore.get("privateKey"):null;
+//			 pdf数字签名
     		 String reason = "test";
     		 String location = "changzhou";
     		 String digestAlgorithm = "panlingyun";
@@ -31,6 +32,7 @@ public class Main {
     		 CryptoStandard  cryptoStandard = CryptoStandard.CMS;
          CipherPdf cipherPdf = new CipherPdf();
     		try {
+    			
 				cipherPdf.sign(imagepath, src, dest, cert, privateKey,rectangle,name,
 						digestAlgorithm, null, cryptoStandard, reason, location);
 			} catch (Exception e) {

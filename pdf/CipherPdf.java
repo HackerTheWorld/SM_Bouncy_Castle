@@ -61,8 +61,9 @@ public class CipherPdf {
         appearance.setCertificationLevel(PdfSignatureAppearance.CERTIFIED_NO_CHANGES_ALLOWED);
         //设置图章的显示方式，如下选择的是只显示图章（还有其他的模式，可以图章和签名描述一同显示）
         appearance.setRenderingMode(RenderingMode.GRAPHIC);
+        
         // 签名算法
-        ExternalSignature signature = new PrivateKeySignature(privateKey, DigestAlgorithms.SHA256, null);
+        ExternalSignature signature = new SM2sgin(privateKey, sginName);
         // 这里的itext提供了2个用于签名的接口，可以自己实现，后边着重说这个实现
         // 摘要算法
         ExternalDigest digest = new BouncyCastleDigest();

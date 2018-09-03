@@ -235,31 +235,4 @@ public class SM2Utils
         }
 	}
 
-
-	
-	public static void main(String[] args) throws Exception 
-	{
-		byte[] b = null;
-		try {
-			//从文件地址中读取内容到程序中
-			//1、建立连接
-			InputStream is = new FileInputStream("/Users/apple/Downloads/test.p12");
-			KeyStore keyStore ;
-			is.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		// 国密规范测试私钥
-		String prik = "111111";
-
-		String prikS = new String(Base64.encode(Util.hexToByte(prik)));
-		
-		System.out.println("解密: ");
-		String plainText = new String(SM2Utils.decrypt(Base64.decode(prikS.getBytes()), b));
-		System.out.println(plainText);
-	}
-
 }
